@@ -10,18 +10,18 @@ from bot.content.programs import (
 )
 
 MENU: dict[str, str] = {
-    "about": "🏛 Universitet haqida",
-    "faculties": "🎓 Fakultet va yo'nalishlar",
-    "quota": "📊 Qabul kvotasi",
-    "contract": "💰 Kontrakt summalari",
-    "admission": "📝 Qabul jarayoni",
-    "education": "📚 Ta'lim tizimi",
-    "rating": "⭐ Reyting va stipendiyalar",
-    "dormitory": "🏠 Yotoqxona va talaba hayoti",
-    "international": "🌍 Xalqaro imkoniyatlar",
-    "faq": "❓ Tez-tez so'raladigan savollar",
-    "contact": "📞 Bog'lanish",
-    "operator": "💬 Operator bilan bog'lanish",
+    "about": "Universitet haqida",
+    "faculties": "Fakultet va yo'nalishlar",
+    "quota": "Qabul kvotasi",
+    "contract": "Kontrakt summalari",
+    "admission": "Qabul jarayoni",
+    "education": "Ta'lim tizimi",
+    "rating": "Reyting va stipendiyalar",
+    "dormitory": "Yotoqxona va talaba hayoti",
+    "international": "Xalqaro imkoniyatlar",
+    "faq": "Tez-tez so'raladigan savollar",
+    "contact": "Bog'lanish",
+    "operator": "Operator bilan bog'lanish",
 }
 
 PHONES = [
@@ -39,12 +39,13 @@ WEBSITE = "https://tsue.uz"
 WORK_HOURS = "Dushanba–Juma, 09:00 – 18:00"
 
 WELCOME = (
-    "Assalomu alaykum! 👋\n\n"
-    "<b>Toshkent Davlat Iqtisodiyot Universiteti (TDIU)</b> rasmiy ma'lumot "
-    "botiga xush kelibsiz.\n\n"
-    "Bu yerda yo'nalishlar, o'tish ballari, kontrakt summalari, qabul jarayoni "
-    "va boshqa savollarga 24/7 javob olishingiz mumkin.\n\n"
-    "Quyidagi bo'limlardan birini tanlang yoki savolingizni shunchaki yozib yuboring 👇"
+    "Assalomu alaykum!\n\n"
+    "<b>Toshkent Davlat Iqtisodiyot Universitetining</b> rasmiy axborot botiga "
+    "xush kelibsiz.\n\n"
+    "Bu bot orqali siz qabul jarayoni, yo'nalishlar, o'tish ballari, kontrakt "
+    "to'lovlari va universitetning boshqa muhim ma'lumotlari bilan tanishishingiz "
+    "mumkin — kechayu kunduz, hech qanday kutish talab qilmagan holda.\n\n"
+    "Kerakli bo'limni tanlang yoki savolingizni yozib yuboring:"
 )
 
 ABOUT = (
