@@ -1,8 +1,4 @@
-"""Bo'limlar matni — tsue.uz va rasmiy hujjatlar asosida.
-
-Yillik o'zgaruvchan raqamlar (o'tish bali, kvota, kontrakt summasi)
-admission_data.py faylida boshqariladi.
-"""
+"""Bo'limlar matni — tsue.uz va rasmiy hujjatlar asosida."""
 from __future__ import annotations
 
 from bot.content import admission_data as ad
@@ -13,7 +9,6 @@ from bot.content.programs import (
     find_program,
 )
 
-# Asosiy menyu bo'limlari: kalit -> tugma yorlig'i
 MENU: dict[str, str] = {
     "about": "🏛 Universitet haqida",
     "faculties": "🎓 Fakultet va yo'nalishlar",
@@ -29,7 +24,6 @@ MENU: dict[str, str] = {
     "operator": "💬 Operator bilan bog'lanish",
 }
 
-# Rasmiy kontaktlar (tsue.uz)
 PHONES = [
     "+998 71 245 42 43",
     "+998 71 239 01 59",
@@ -53,7 +47,6 @@ WELCOME = (
     "Quyidagi bo'limlardan birini tanlang yoki savolingizni shunchaki yozib yuboring 👇"
 )
 
-
 ABOUT = (
     "🏛 <b>Universitet haqida</b>\n\n"
     "<b>Toshkent Davlat Iqtisodiyot Universiteti (TDIU)</b> — nafaqat "
@@ -74,18 +67,11 @@ ABOUT = (
     "• ~50 000 mahalliy va xorijiy talaba\n"
     "• ~2 500 professor-o'qituvchi (≈70% ilmiy darajaga ega)\n"
     "• 2 akademik litsey va 11 texnikum\n\n"
-    "🌍 <b>Xalqaro hamkorlik:</b>\n"
-    "• 200+ nufuzli universitet bilan hamkorlik (MIT, Sapienza, Tsukuba va b.)\n"
-    "• LSE, IMC Krems, Universitas Pendidikan Indonesia, Padjadjaran kabi 12 ta "
-    "universitet bilan «1+1», «3+1» qo'sh diplom dasturlari\n"
-    "• Erasmus+ va akademik almashinuv; 100+ xorijiy professor; inglizcha guruhlar\n\n"
     "✅ <b>Sifat va akkreditatsiya:</b>\n"
     "• 7 yo'nalish ACBSP va NAAR xalqaro akkreditatsiyasidan o'tgan\n"
     "• «Buxgalteriya hisobi» dasturi ACCA tomonidan tan olingan\n"
     "• Bitiruvchilar bandligi 95%+\n\n"
-    "🔬 <b>Innovatsion markazlar:</b> «Eksperimental iqtisodiyot» laboratoriyasi, "
-    "IT Park bilan «Digital Finance» akseleratsiya markazi, Anhalt universiteti "
-    "bilan «Yashil iqtisodiyot» markazi.\n\n"
+    "🌍 Batafsil xalqaro hamkorlik va 🔬 ilmiy faoliyat — tegishli bo'limlarda.\n\n"
     "🌐 Sayt: https://tsue.uz\n"
     "📍 Manzil: 100066, Toshkent, Islom Karimov ko'chasi, 49"
 )
@@ -112,21 +98,30 @@ EDUCATION = (
     "• Magistratura (32 mutaxassislik)\n"
     "• Doktorantura (PhD / DSc)\n\n"
     "🕘 <b>Ta'lim shakllari:</b> kunduzgi, sirtqi, kechki va masofaviy (yo'nalishga qarab).\n\n"
-    "📐 <b>Tizim:</b> kredit-modul tizimi; semestrlar, oraliq va yakuniy nazoratlar orqali baholanadi.\n\n"
+    "📐 <b>Tizim:</b> kredit-modul tizimi; «5+1» formati — soha korxonalarida 35 ta kafedra filiali; simulyatsion o'quv laboratoriyalari.\n\n"
     "🤝 <b>Qo'shma dasturlar:</b>\n" + "\n".join(f"• {p}" for p in JOINT_PROGRAMS)
 )
 
 RATING = (
-    "⭐ <b>Reyting va stipendiyalar</b>\n\n"
+    "⭐ <b>Reyting, ilmiy faoliyat va stipendiyalar</b>\n\n"
     "🏆 <b>Reytinglar:</b>\n"
     "• QS Stars 5 yulduz (O'zbekistonda 1-, Markaziy Osiyoda 2-o'rin)\n"
     "• QS Asia 2026: 274-o'rin | QS Sustainability 2026: TOP-1000\n"
     "• THE Impact: TOP-500 | UI GreenMetric: TOP-250\n\n"
-    "💵 <b>Stipendiya turlari:</b>\n"
-    "• Davlat stipendiyasi — grant asosida o'qiydigan, o'zlashtirishi yuqori talabalarga.\n"
-    "• Nomli/maxsus stipendiyalar — yuqori natija ko'rsatgan talabalarga.\n"
-    "• Ijtimoiy yordam — ijtimoiy himoyaga muhtoj talabalar uchun.\n\n"
-    f"ℹ️ Batafsil shartlar: {WEBSITE}"
+    "🔬 <b>Ilmiy faoliyat:</b>\n"
+    "• 1355 professor-o'qituvchi; ilmiy salohiyat 63,4%\n"
+    "• 2025: 224 monografiya, 2809 ilmiy maqola\n"
+    "• Scopus: 2021-y. 130 → 2025-y. ~926 publikatsiya (7,1 barobar o'sish), Q1+Q2 ulushi 60%+\n"
+    "• Web of Science: 2023–2025 da 901 maqola\n"
+    "• 5 ilmiy kengash, 12 ixtisoslik; 2025-y. 271 dissertatsiya himoyasi (53 DSc, 218 PhD)\n"
+    "• Fan olimpiadalarida respublika OTMlari orasida 1-o'rin\n"
+    "• «Digital Finance» markazi: 58 startap, 1,2 mlrd so'm; «Eksperimental Iqtisodiyot» laboratoriyasi (Moody's ORBIS — 600 mln+ tashkilot bazasi)\n\n"
+    "💵 <b>Stipendiyalar:</b>\n"
+    "• Davlat stipendiyasi (grant asosida, yuqori o'zlashtirganlarga)\n"
+    "• Prezident stipendiyasi va granti\n"
+    "• Islom Karimov, Abu Rayhon Beruniy, Alisher Navoiy nomidagi davlat stipendiyalari\n"
+    "• Ijtimoiy yordam — himoyaga muhtoj talabalarga\n\n"
+    f"ℹ️ Batafsil: {WEBSITE}"
 )
 
 DORMITORY = (
@@ -146,15 +141,31 @@ DORMITORY = (
 
 INTERNATIONAL = (
     "🌍 <b>Xalqaro imkoniyatlar</b>\n\n"
-    "🤝 <b>Qo'sh diplom dasturlari («1+1», «3+1»):</b>\n"
+    "TDIU dunyoning <b>200+ nufuzli universiteti</b> bilan ikki va ko'p tomonlama "
+    "shartnoma va memorandumlarga ega (asosan QS TOP-1000 universitetlar).\n\n"
+    "🤝 <b>Hamkor universitetlar (ayrimlari):</b>\n"
+    "• 🇺🇸 AQSh — MIT (QS-2), Kent davlat universiteti\n"
+    "• 🇬🇧 Buyuk Britaniya — University College London (QS-9), LSE\n"
+    "• 🇮🇹 Italiya — Sapienza (QS-128)\n"
+    "• 🇸🇪 Shvetsiya — Lund (QS-72)\n"
+    "• 🇨🇳 Xitoy — Pekin (QS-14), Wuhan (QS-186), Shanghai (QS-465)\n"
+    "• 🇯🇵 Yaponiya — Tsukuba (QS-350)\n"
+    "• 🇷🇴 Ruminiya — Buxarest Iqtisodiy tadqiqotlar universiteti\n"
+    "• 🇮🇩 Indoneziya — Padjadjaran (QS-515), Universitas Pendidikan Indonesia\n"
+    "• 🇲🇾 Malayziya — Malaya (QS-58), MARA texnologiya, Utara Malaysia\n"
+    "• 🇰🇷 Janubiy Koreya — Kyungdong, Keimyung, Chungbuk\n"
+    "• 🇦🇹 Avstriya — IMC Krems | 🇦🇿 Ozarbayjon — Davlat iqtisodiyot universiteti\n\n"
+    "🎓 <b>Qo'sh diplom dasturlari («1+1», «3+1»):</b>\n"
     + "\n".join(f"• {p}" for p in JOINT_PROGRAMS)
     + "\n\n"
-    "🔄 <b>Imkoniyatlar:</b>\n"
-    "• 200+ nufuzli universitet bilan hamkorlik (MIT, Sapienza, Tsukuba va b.)\n"
-    "• Erasmus+ va akademik almashinuv dasturlari\n"
-    "• Xorijda malaka oshirish va amaliyot\n"
-    "• 100+ xorijiy professor; barcha yo'nalishlarda inglizcha guruhlar\n"
-    "• Xorijiy talabalar uchun ta'lim imkoniyatlari\n\n"
+    "🔄 <b>Akademik almashinuv va grantlar:</b>\n"
+    "• Erasmus+, Global Korea, Germaniya (Saksoniya), Slovakiya milliy stipendiyalari\n"
+    "• 2025-y. ~150 talaba xorijga o'qishga yuborilgan\n"
+    "• 150+ xorijiy professor o'quv jarayoniga jalb etilgan\n\n"
+    "👨‍🎓 <b>Xorijiy talabalar:</b> 15 davlatdan 610+ talaba — Afg'oniston, "
+    "Belarus, Germaniya, Hindiston, Falastin, Ozarbayjon, Qirg'iziston, "
+    "Qozog'iston, Rossiya, Tojikiston, Turkiya, Turkmaniston, Indoneziya, "
+    "Ukraina, Xitoy.\n\n"
     f"ℹ️ Batafsil: {WEBSITE}"
 )
 

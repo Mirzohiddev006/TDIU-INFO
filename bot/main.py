@@ -16,6 +16,7 @@ from sqlalchemy import select
 
 from bot.config import load_config
 from bot.handlers import get_router
+from bot.middlewares.subscription import SubscriptionMiddleware
 from bot.webserver import keepalive_loop, start_webserver
 from core.database import async_session_factory, init_db
 from core.models import Faculty
@@ -46,6 +47,8 @@ async def main() -> None:
         default=DefaultBotProperties(parse_mode=ParseMode.HTML),
     )
     dp = Dispatcher()
+    dp.message.outer_middleware(SubscriptionMiddleware())
+    dp.callback_query.outer_middleware(SubscriptionMiddleware())
     dp.include_router(get_router())
 
     # Health-server (Render port talabi) + keep-alive self-ping

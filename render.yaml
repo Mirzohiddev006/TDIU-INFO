@@ -21,11 +21,12 @@ services:
         sync: false
       - key: DATABASE_URL
         # Standart: SQLite — qo'shimcha sozlashsiz ishlaydi (kontent har startda
-        # koddan qayta to'ldiriladi). Ma'lumot saqlanishi kerak bo'lsa (admin
-        # tahrirlari, statistika), buni Neon/PostgreSQL satriga o'zgartiring.
+        # koddan qayta to'ldiriladi). Saqlanishi kerak bo'lsa Neon/PostgreSQL satrini qo'ying.
         value: "sqlite+aiosqlite:///./tdiu.db"
       - key: ADMISSION_YEAR
         value: "2025/2026"
       - key: KEEPALIVE_MINUTES
         value: "14"
+      - key: SUBSCRIPTION_CHECK
+        value: "true"          # majburiy obuna; bot 3 kanalda ADMIN bo'lishi shart
       # RENDER_EXTERNAL_URL ni Render avtomatik beradi — keep-alive uni ishlatadi

@@ -92,3 +92,17 @@ kontrakt narxlari) bilan to'ldiradi — qo'shimcha amal kerak emas. Telegram'da 
 - Bepul Web Service oyiga ~750 soat beradi — bitta doimiy servis uchun yetarli.
 - Token oshkor bo'lsa @BotFather → `/revoke` orqali yangilang.
 - Polling rejimi ishlatilmoqda; keep-alive tufayli bot doim onlayn turadi.
+
+## Majburiy kanal obunasi (muhim!)
+
+Bot foydalanuvchidan 3 ta kanalga obunani talab qiladi:
+TSUE-TDIU (@tsueuzofficial), TDIU | Yoshlar kanali (@tdiu_official), TDIU Yoshlar ittifoqi (@TDIU_YI).
+
+⚠️ **Bot har bir kanalda ADMINISTRATOR bo'lishi SHART.** Aks holda bot a'zolikni
+tekshira olmaydi va hech kim botdan foydalana olmaydi.
+
+Har bir kanalda: Kanal → Administrators → Add Admin → botingizni qo'shing
+(faqat o'qish huquqi yetarli, lekin "Add members" ham qoldirsa bo'ladi).
+
+Obunani vaqtincha o'chirish: Render Environment'da `SUBSCRIPTION_CHECK=false`.
+Kanallarni o'zgartirish: `bot/services/subscription.py` → `REQUIRED_CHANNELS`.
