@@ -8,8 +8,8 @@ admin/.env.development
 # Node / React
 node_modules/
 admin/node_modules/
-admin/dist/
 *.local
+# admin/dist — Render uchun oldindan build qilingan, repoga qo'shiladi (git'da qoldiriladi)
 
 # Ma'lumotlar bazasi (lokal)
 *.db

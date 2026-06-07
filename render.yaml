@@ -44,17 +44,13 @@ services:
       - key: SUBSCRIPTION_CHECK
         value: "true"
 
-  # 2) Admin panel (React static site — bepul)
+  # 2) Admin panel (oldindan build qilingan static — npm build YO'Q)
+  # API manzili admin/dist/config.js da runtime'da beriladi.
   - type: web
     name: tdiu-admin
     runtime: static
-    buildCommand: "cd admin && npm install && npm run build"
+    buildCommand: "echo 'prebuilt dist ishlatilmoqda'"
     staticPublishPath: admin/dist
-    envVars:
-      - key: NODE_VERSION
-        value: "20.18.1"      # Node 24 esbuild EACCES xatosini oldini oladi
-      - key: VITE_API_URL
-        sync: false            # tdiu-bot-api manzili + /api (1-deploydan keyin)
     routes:
       - type: rewrite
         source: /*

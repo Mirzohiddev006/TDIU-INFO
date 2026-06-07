@@ -10,11 +10,13 @@ FAQ: list[dict] = [
         "id": 1,
         "question": "Hujjat topshirish qachon boshlanadi?",
         "answer": (
-            "Ariza topshirish rasmiy platforma orqali amalga oshiriladi. "
-            "Aniq muddatlar uchun «📝 Qabul jarayoni» bo'limiga qarang. "
-            "<i>[TODO: aniq sana]</i>"
+            "Abituriyentlar <b>my.uzbmb.uz</b> sayti orqali onlayn ro'yxatdan o'tishlari mumkin.\n\n"
+            "Abituriyentlar 5-iyundan 25-iyunga qadar (25-iyun kuni ham) test sinovi "
+            "topshirish uchun ro'yxatdan o'tadi. Bunda abituriyentlar faqat test sinovi "
+            "topshiriladigan fanlar majmuasi, ta'lim tili va test topshirish hududini tanlaydi xolos.\n\n"
+            "Imtihonlar iyul–avgust oylarida o'tkaziladi."
         ),
-        "keywords": ["hujjat", "ariza", "topshirish", "qachon", "muddat", "boshlanadi"],
+        "keywords": ["hujjat", "ariza", "topshirish", "qachon", "muddat", "boshlanadi", "royxat", "ro'yxat"],
     },
     {
         "id": 2,

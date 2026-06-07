@@ -89,12 +89,20 @@ OTHER_FACULTIES: list[str] = [
 ]
 
 JOINT_PROGRAMS: list[str] = [
-    "TDIU – London iqtisodiyot va siyosiy fanlar maktabi (Buyuk Britaniya)",
-    "TDIU – Krems amaliy fanlar universiteti (Avstriya)",
-    "TDIU – Moliya universiteti (Rossiya)",
-    "TDIU – Ural davlat iqtisodiyot universiteti (Rossiya)",
-    "TDIU – Pendidikan universiteti (Indoneziya)",
-    "TDIU – Polotsk davlat universiteti (Belarus)",
+    '🇬🇧 <a href="https://t.me/iseflseuol">London universiteti (University of London)</a> — Buyuk Britaniya',
+    '🇦🇹 <a href="https://t.me/imckremsuz">IMC Krems University of Applied Sciences</a> — Avstriya (QS: 941, THE: 1001–1500)',
+    '🇨🇿 <a href="https://t.me/tgeu_fmsop">Praga menejment va texnologiya universiteti</a> — Chexiya',
+    '🇮🇩 <a href="https://t.me/ijdp_tsue">Universitas Pendidikan Indonesia</a> — Indoneziya (QS: 951–1000)',
+    '🇷🇺 <a href="https://t.me/usue_tsue">Ural davlat iqtisodiyot universiteti</a> — Rossiya',
+    '🇧🇾 <a href="https://t.me/tgeu_fmsop">Belarus davlat universiteti</a> — Belarus',
+    '🇰🇬 <a href="https://t.me/tgeu_fmsop">M. Risqulbekov nomidagi Iqtisodiyot va tadbirkorlik universiteti</a> — Qirg\'iziston',
+    '🇹🇯 <a href="https://t.me/tgeu_fmsop">Tojikiston davlat huquq, biznes va siyosat universiteti</a> — Tojikiston',
+    '🇮🇩 <a href="https://t.me/ijdp_tsue">Padjadjaran universiteti</a> — Indoneziya (QS: 596)',
+    '🇷🇺 <a href="https://t.me/tgeu_fmsop">Moliya universiteti (RF hukumati huzurida)</a> (QS: 1001–1200)',
+    '🇷🇺 <a href="https://t.me/tsuemephimifi">Rossiya Milliy tadqiqotlar yadro universiteti (MEPhI)</a> (QS: 591, THE: 501–600)',
+    '🇨🇳 <a href="https://t.me/tgeu_fmsop">Uxan universiteti (Wuhan University)</a> — Xitoy (QS: 801–850, THE: 134)',
+    '🇦🇿 <a href="https://t.me/tgeu_fmsop">Ozarbayjon davlat iqtisodiyot universiteti</a> (QS: 1001–1200)',
+    '🇷🇺 <a href="https://t.me/tgeu_fmsop">Butunrossiya tashqi savdo akademiyasi</a> — Rossiya',
 ]
 
 

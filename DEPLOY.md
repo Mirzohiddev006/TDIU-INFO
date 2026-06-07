@@ -23,10 +23,17 @@ Loyiha 3 qismdan iborat va Render Blueprint (`render.yaml`) orqali **bir marta**
    - Admin login: `admin` / siz kiritgan `ADMIN_PASSWORD`.
 
 ## 2. Admin panelni API'ga ulash (1 marta)
-Birinchi deploydan keyin `tdiu-bot-api` manzilini oling (masalan `https://tdiu-bot-api.onrender.com`):
-1. `tdiu-admin` servisi → Environment → `VITE_API_URL` = `https://tdiu-bot-api.onrender.com/api`
-2. `tdiu-admin` → Manual Deploy (qayta build, chunki Vite env build-time).
+Admin panel oldindan build qilingan (`admin/dist`), Render uni npm bilan qaytadan
+qurmaydi. API manzili **runtime'da** `admin/dist/config.js` faylidan o'qiladi.
 
+Birinchi deploydan keyin `tdiu-bot-api` manzilini oling (masalan
+`https://tdiu-bot-api.onrender.com`) va `admin/dist/config.js` ni tahrirlang:
+
+```js
+window.__API_URL__ = "https://tdiu-bot-api.onrender.com/api";
+```
+
+So'ng GitHub'ga push qiling — `tdiu-admin` avtomatik yangilanadi.
 Endi admin panel manzili (`https://tdiu-admin.onrender.com`) orqali kirasiz.
 
 ## 3. Majburiy kanal obunasi (muhim!)
