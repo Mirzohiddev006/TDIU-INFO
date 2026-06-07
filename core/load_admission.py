@@ -31,7 +31,9 @@ async def load() -> None:
                 a = Admission(program_id=p.id, year=CURRENT_YEAR)
                 db.add(a)
             a.passing_grant = d["passing_grant"]
+            a.passing_grant_ru = d.get("passing_grant_ru")
             a.passing_contract = d["passing_contract"]
+            a.passing_contract_ru = d.get("passing_contract_ru")
             a.grant_places = d["grant_places"]
             a.contract_places = d["contract_places"]
 

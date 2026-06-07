@@ -1,17 +1,12 @@
-"""Fakultetlar va bakalavriat yo'nalishlari — tsue.uz rasmiy katalogidan.
+"""Fakultetlar va bakalavriat yo'nalishlari — 2025/2026 rasmiy qabul ro'yxati.
 
-Manba: https://tsue.uz/page/bachelor (32 ta bakalavriat yo'nalishi).
-Yo'nalish kodlari va nomlari rasmiy. Yo'nalishlarning fakultetlarga taqsimoti
-mavzu bo'yicha tuzilgan — admin panel orqali aniqlashtirilishi mumkin.
-
-Har bir yo'nalishning `id` si — o'tish bali / kontrakt summasi kabi yillik
-qiymatlarni bog'lash uchun ishlatiladi (qarang: admission_data.py).
+Manba: TDIU 2025/2026 kunduzgi bakalavriat qabul parametrlari (17 yo'nalish).
+Kodlar va nomlar rasmiy. Yo'nalishlarning fakultetlarga taqsimoti mavzu bo'yicha.
 """
 from __future__ import annotations
 
-# Standart qiymatlar
 DEFAULT_FORM = "Kunduzgi"
-DEFAULT_LANG = "O'zbek"
+DEFAULT_LANG = "O'zbek / Rus"
 
 
 def _p(pid: str, code: str, name: str) -> dict:
@@ -23,101 +18,83 @@ FACULTIES: list[dict] = [
         "id": "economics",
         "name": "Iqtisodiyot fakulteti",
         "programs": [
-            _p("prof_econ", "60112400", "Professional ta'lim: iqtisodiyot"),
-            _p("econ_branch", "60310100", "Iqtisodiyot (tarmoqlar va sohalar bo'yicha)"),
-            _p("econ_dev", "60310100", "Iqtisodiyot (taraqqiyot iqtisodiyoti)"),
-            _p("econ_city", "60310100", "Iqtisodiyot (shaharlar iqtisodiyoti)"),
-            _p("econ_green", "60310100", "Iqtisodiyot (yashil iqtisodiyot)"),
-            _p("econometrics", "60310200", "Ekonometrika"),
-            _p("regional_econ", "60310300", "Mintaqaviy iqtisodiyot"),
-            _p("econ_security", "60310400", "Iqtisodiy xavfsizlik"),
-        ],
-    },
-    {
-        "id": "digital",
-        "name": "Raqamli iqtisodiyot va axborot texnologiyalari fakulteti",
-        "programs": [
-            _p("digital_econ", "60310500", "Raqamli iqtisodiyot (tarmoqlar va sohalar bo'yicha)"),
-            _p("info_systems", "60610200", "Axborot tizimlari va texnologiyalari (tarmoqlar va sohalar bo'yicha)"),
-            _p("info_security", "60610300", "Axborot xavfsizligi (sohalar bo'yicha)"),
-            _p("ai", "60610700", "Sun'iy intellekt"),
+            _p("econ", "60410100", "Iqtisodiyot"),
         ],
     },
     {
         "id": "accounting",
         "name": "Buxgalteriya hisobi fakulteti",
         "programs": [
-            _p("accounting_audit", "60410100", "Buxgalteriya hisobi va audit (tarmoqlar bo'yicha)"),
-            _p("statistics", "60410800", "Statistika (tarmoqlar va sohalar bo'yicha)"),
+            _p("accounting", "60410200", "Buxgalteriya hisobi"),
+            _p("statistics", "60410700", "Statistika"),
         ],
     },
     {
         "id": "taxes",
         "name": "Soliqlar va byudjet hisobi fakulteti",
         "programs": [
-            _p("taxes", "60410200", "Soliqlar va soliqqa tortish (faoliyat turlari bo'yicha)"),
-            _p("budget_treasury", "60410700", "Budjet nazorati va g'aznachiligi"),
+            _p("taxes", "60410300", "Soliqlar va soliqqa tortish"),
         ],
     },
     {
         "id": "finance",
         "name": "Moliya fakulteti",
         "programs": [
-            _p("finance_fintech", "60410400", "Moliya va moliyaviy texnologiyalar"),
+            _p("finance", "60410500", "Moliya va moliyaviy texnologiyalar"),
         ],
     },
     {
         "id": "banking",
         "name": "Bank ishi fakulteti",
         "programs": [
-            _p("banking_audit", "60410500", "Bank ishi va auditi"),
-            _p("insurance", "60410600", "Sug'urta ishi"),
-            _p("currency_credit", "60412100", "Xalqaro valyuta-kredit munosabatlari"),
+            _p("banking", "60410600", "Bank ishi"),
         ],
     },
     {
         "id": "management",
         "name": "Menejment fakulteti",
         "programs": [
-            _p("management", "60411200", "Menejment (tarmoqlar va sohalar bo'yicha)"),
-            _p("biz_sustainable", "60411300", "Biznesni boshqarish (barqaror biznes)"),
-            _p("biz_branch", "60411300", "Biznesni boshqarish (tarmoqlar bo'yicha)"),
-            _p("hr", "60411400", "Inson resurslarini boshqarish"),
-            _p("biz_analysis", "60411500", "Biznes-tahlil"),
-            _p("corporate", "60411600", "Korporativ boshqaruv"),
-            _p("logistics", "60411700", "Logistika (yo'nalishlar bo'yicha)"),
-            _p("world_econ", "60411900", "Jahon iqtisodiyoti va xalqaro iqtisodiy munosabatlar"),
-            _p("marketing", "60412500", "Marketing (tarmoqlar va sohalar bo'yicha)"),
+            _p("management", "60410800", "Menejment"),
+            _p("business", "60410900", "Biznesni boshqarish"),
+            _p("hr", "60411000", "Inson resurslarini boshqarish"),
+            _p("world_econ", "60411100", "Jahon iqtisodiyoti va xalqaro iqtisodiy munosabatlar"),
+            _p("marketing", "60411200", "Marketing"),
+            _p("trade", "60411300", "Savdo ishi"),
+            _p("logistics", "61010400", "Logistika"),
+        ],
+    },
+    {
+        "id": "digital",
+        "name": "Raqamli iqtisodiyot va axborot texnologiyalari fakulteti",
+        "programs": [
+            _p("info_systems", "60610100", "Axborot tizimlari va texnologiyalari"),
+            _p("info_security", "60610200", "Axborot xavfsizligi"),
+            _p("ai", "60610500", "Sun'iy intellekt"),
         ],
     },
     {
         "id": "tourism",
         "name": "Turizm fakulteti",
         "programs": [
-            _p("tourism_mgmt", "60411200", "Menejment: turizm biznesini boshqarish"),
-            _p("hotel", "61010100", "Mehmonxona xo'jaligini tashkil etish va boshqarish"),
-            _p("tourism", "61010400", "Turizm (faoliyat yo'nalishlari bo'yicha)"),
+            _p("tourism", "61010100", "Turizm va mehmondo'stlik"),
         ],
     },
 ]
 
-# Ta'lim shakli / joylashuv bo'yicha qo'shimcha fakultetlar (yuqoridagi yo'nalishlar
-# turli shakllarda taklif etiladi). Ma'lumot uchun ko'rsatiladi.
 OTHER_FACULTIES: list[str] = [
-    "Moliya fakulteti",
     "Sirtqi ta'lim fakulteti",
     "Kechki ta'lim va magistratura fakulteti",
     "Masofaviy va Ikkinchi oliy ta'lim fakulteti",
     "Qo'shma ta'lim fakulteti",
-    "To'rtko'l fakulteti (filial)",
-    "Andijon fakulteti (filial)",
 ]
 
 JOINT_PROGRAMS: list[str] = [
-    "TDIU – London universiteti qo'shma ta'lim dasturi",
-    "TDIU – IMC Krems (Avstriya) qo'shma ta'lim dasturi",
-    "TDIU – Pendidikan qo'shma ta'lim dasturi",
-    "TDIU – UrDIU qo'shma ta'lim dasturi",
+    "TDIU – London iqtisodiyot va siyosiy fanlar maktabi (Buyuk Britaniya)",
+    "TDIU – Krems amaliy fanlar universiteti (Avstriya)",
+    "TDIU – Moliya universiteti (Rossiya)",
+    "TDIU – Ural davlat iqtisodiyot universiteti (Rossiya)",
+    "TDIU – Pendidikan universiteti (Indoneziya)",
+    "TDIU – Polotsk davlat universiteti (Belarus)",
 ]
 
 

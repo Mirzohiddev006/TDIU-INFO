@@ -62,7 +62,9 @@ class AdmissionIn(BaseModel):
     grant_places: int | None = None
     contract_places: int | None = None
     passing_grant: float | None = None
+    passing_grant_ru: float | None = None
     passing_contract: float | None = None
+    passing_contract_ru: float | None = None
 
 
 class AdmissionOut(ORM):
@@ -72,7 +74,9 @@ class AdmissionOut(ORM):
     grant_places: int | None
     contract_places: int | None
     passing_grant: float | None
+    passing_grant_ru: float | None
     passing_contract: float | None
+    passing_contract_ru: float | None
 
 
 # ── Contract ──

@@ -1,0 +1,31 @@
+# Render.com Blueprint — TDIU Info Bot (bepul Web Service)
+# Dashboard > New > Blueprint orqali shu repodan avtomatik o'qiladi.
+services:
+  - type: web
+    name: tdiu-info-bot
+    runtime: python
+    plan: free
+    region: frankfurt          # Toshkentga eng yaqin variantlardan biri
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python -m bot.main"
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: BOT_TOKEN
+        sync: false            # maxfiy — Render dashboardda qo'lda kiritiladi
+      - key: ADMIN_IDS
+        sync: false
+      - key: SUPPORT_USERNAME
+        sync: false
+      - key: DATABASE_URL
+        # Standart: SQLite — qo'shimcha sozlashsiz ishlaydi (kontent har startda
+        # koddan qayta to'ldiriladi). Ma'lumot saqlanishi kerak bo'lsa (admin
+        # tahrirlari, statistika), buni Neon/PostgreSQL satriga o'zgartiring.
+        value: "sqlite+aiosqlite:///./tdiu.db"
+      - key: ADMISSION_YEAR
+        value: "2025/2026"
+      - key: KEEPALIVE_MINUTES
+        value: "14"
+      # RENDER_EXTERNAL_URL ni Render avtomatik beradi — keep-alive uni ishlatadi

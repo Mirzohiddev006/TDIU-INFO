@@ -75,7 +75,9 @@ class Admission(Base):
     grant_places: Mapped[int | None] = mapped_column(Integer)
     contract_places: Mapped[int | None] = mapped_column(Integer)
     passing_grant: Mapped[float | None] = mapped_column(Float)
+    passing_grant_ru: Mapped[float | None] = mapped_column(Float)
     passing_contract: Mapped[float | None] = mapped_column(Float)
+    passing_contract_ru: Mapped[float | None] = mapped_column(Float)
 
     program: Mapped["Program"] = relationship(back_populates="admissions")
 

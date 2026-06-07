@@ -1,7 +1,7 @@
-"""Bo'limlar matni — tsue.uz rasmiy ma'lumotlari asosida.
+"""Bo'limlar matni — tsue.uz va rasmiy hujjatlar asosida.
 
 Yillik o'zgaruvchan raqamlar (o'tish bali, kvota, kontrakt summasi)
-admission_data.py faylida boshqariladi. Bo'lim matnlari shu fayldan o'qiydi.
+admission_data.py faylida boshqariladi.
 """
 from __future__ import annotations
 
@@ -54,42 +54,53 @@ WELCOME = (
 )
 
 
-# ── Statik bo'limlar (tsue.uz dan) ──────────────────────────────────────
-
 ABOUT = (
     "🏛 <b>Universitet haqida</b>\n\n"
-    "<b>Toshkent Davlat Iqtisodiyot Universiteti (TDIU)</b> — iqtisodiy "
-    "yo'nalishlar bo'yicha respublikadagi tayanch oliy ta'lim muassasasi.\n\n"
-    "📜 Universitet 1931-yil 31-avgustda O'rta Osiyo moliya-iqtisod instituti "
-    "sifatida tashkil topgan. Oliy malakali iqtisodchilarni tayyorlash esa "
-    "1918-yil 12-mayda boshlangan.\n\n"
-    "🎯 <b>Missiya:</b> ilm-fan, ta'lim va innovatsiyalarni rivojlantirish "
-    "orqali iqtisodiyot va insoniyat taraqqiyotiga munosib hissa qo'shish, "
-    "kelajak yetakchilarini tayyorlash.\n\n"
+    "<b>Toshkent Davlat Iqtisodiyot Universiteti (TDIU)</b> — nafaqat "
+    "O'zbekiston, balki butun Markaziy Osiyoda iqtisodiyot, moliya, axborot "
+    "texnologiyalari va sun'iy intellekt sohalarida yuqori malakali "
+    "mutaxassislar tayyorlaydigan yetakchi oliy ta'lim muassasalaridan biri. "
+    "1931-yilda tashkil etilgan.\n\n"
+    "🏆 <b>Reyting va e'tirof:</b>\n"
+    "• QS Stars <b>5 yulduz</b> — O'zbekistonda birinchi, Markaziy Osiyoda ikkinchi\n"
+    "• QS Asia University Rankings 2026: <b>274-o'rin</b> (O'zbekistonda 3-, mintaqada 15-o'rin)\n"
+    "• QS Sustainability 2026: dunyoning eng sara 1000 ta universiteti qatorida\n"
+    "• QS by subject 2026: «Iqtisodiyot va ekonometrika» — TOP-300 da\n"
+    "• THE Impact Ranking: TOP-500 | UI GreenMetric: TOP-250 (respublikada 1-o'rin)\n"
+    "• Webometrics: respublikada 1-o'rin\n\n"
     "📊 <b>Bugungi kunda:</b>\n"
-    "• 24 ta bakalavriat yo'nalishi\n"
-    "• 28 ta magistratura mutaxassisligi\n"
-    "• 14 ta fakultet va filiallar\n"
-    "• Xalqaro qo'shma ta'lim dasturlari\n\n"
-    f"🌐 Sayt: {WEBSITE}\n"
-    f"📍 Manzil: {ADDRESS}"
+    "• 14 fakultet, 45 kafedra, 1 filial\n"
+    "• 17 bakalavriat yo'nalishi, 32 magistratura mutaxassisligi\n"
+    "• ~50 000 mahalliy va xorijiy talaba\n"
+    "• ~2 500 professor-o'qituvchi (≈70% ilmiy darajaga ega)\n"
+    "• 2 akademik litsey va 11 texnikum\n\n"
+    "🌍 <b>Xalqaro hamkorlik:</b>\n"
+    "• 200+ nufuzli universitet bilan hamkorlik (MIT, Sapienza, Tsukuba va b.)\n"
+    "• LSE, IMC Krems, Universitas Pendidikan Indonesia, Padjadjaran kabi 12 ta "
+    "universitet bilan «1+1», «3+1» qo'sh diplom dasturlari\n"
+    "• Erasmus+ va akademik almashinuv; 100+ xorijiy professor; inglizcha guruhlar\n\n"
+    "✅ <b>Sifat va akkreditatsiya:</b>\n"
+    "• 7 yo'nalish ACBSP va NAAR xalqaro akkreditatsiyasidan o'tgan\n"
+    "• «Buxgalteriya hisobi» dasturi ACCA tomonidan tan olingan\n"
+    "• Bitiruvchilar bandligi 95%+\n\n"
+    "🔬 <b>Innovatsion markazlar:</b> «Eksperimental iqtisodiyot» laboratoriyasi, "
+    "IT Park bilan «Digital Finance» akseleratsiya markazi, Anhalt universiteti "
+    "bilan «Yashil iqtisodiyot» markazi.\n\n"
+    "🌐 Sayt: https://tsue.uz\n"
+    "📍 Manzil: 100066, Toshkent, Islom Karimov ko'chasi, 49"
 )
 
 ADMISSION_PROCESS = (
     "📝 <b>Qabul jarayoni</b>\n\n"
     "1️⃣ <b>Ro'yxatdan o'tish</b>\n"
-    "Davlat qabul platformasi (my.gov.uz / qabul.edu.uz) orqali ariza "
-    "topshiriladi.\n\n"
+    "Davlat qabul platformasi (my.gov.uz / qabul.edu.uz) orqali ariza topshiriladi.\n\n"
     "2️⃣ <b>Test imtihoni</b>\n"
-    "Davlat test markazi (DTM) belgilagan tartibda blok fanlardan test "
-    "topshiriladi.\n\n"
+    "Davlat test markazi (DTM) belgilagan tartibda blok fanlardan test topshiriladi.\n\n"
     "3️⃣ <b>Natijalar va tavsiya</b>\n"
     "O'tish ballari e'lon qilinadi, abituriyentlar tavsiya etiladi.\n\n"
     "4️⃣ <b>Hujjat topshirish va shartnoma</b>\n"
-    "Tavsiya etilganlar hujjatlarini topshiradi va (kontrakt asosida) "
-    "shartnoma imzolaydi.\n\n"
-    "📄 <b>Kerakli hujjatlar (odatda):</b> pasport/ID, ma'lumotnoma yoki "
-    "diplom, 3x4 rasm, tibbiy ma'lumotnoma.\n\n"
+    "Tavsiya etilganlar hujjatlarini topshiradi va (kontrakt asosida) shartnoma imzolaydi.\n\n"
+    "📄 <b>Kerakli hujjatlar (odatda):</b> pasport/ID, ma'lumotnoma yoki diplom, 3x4 rasm, tibbiy ma'lumotnoma.\n\n"
     f"ℹ️ Aniq muddatlar va batafsil yo'riqnoma: {WEBSITE}/admission\n"
     f"☎️ Qabul komissiyasi: {', '.join(ADMISSION_PHONES)}"
 )
@@ -97,25 +108,22 @@ ADMISSION_PROCESS = (
 EDUCATION = (
     "📚 <b>Ta'lim tizimi</b>\n\n"
     "🎓 <b>Bosqichlar:</b>\n"
-    "• Bakalavriat (24 yo'nalish)\n"
-    "• Magistratura (28 mutaxassislik)\n"
+    "• Bakalavriat (17 yo'nalish)\n"
+    "• Magistratura (32 mutaxassislik)\n"
     "• Doktorantura (PhD / DSc)\n\n"
-    "🕘 <b>Ta'lim shakllari:</b> kunduzgi, sirtqi, kechki va masofaviy "
-    "(yo'nalishga qarab).\n\n"
-    "📐 <b>Tizim:</b> kredit-modul tizimi asosida; semestrlar, oraliq va "
-    "yakuniy nazoratlar orqali baholanadi.\n\n"
+    "🕘 <b>Ta'lim shakllari:</b> kunduzgi, sirtqi, kechki va masofaviy (yo'nalishga qarab).\n\n"
+    "📐 <b>Tizim:</b> kredit-modul tizimi; semestrlar, oraliq va yakuniy nazoratlar orqali baholanadi.\n\n"
     "🤝 <b>Qo'shma dasturlar:</b>\n" + "\n".join(f"• {p}" for p in JOINT_PROGRAMS)
 )
 
 RATING = (
     "⭐ <b>Reyting va stipendiyalar</b>\n\n"
     "🏆 <b>Reytinglar:</b>\n"
-    "TDIU milliy va xalqaro reytinglarda (jumladan QS mintaqaviy reytinglar) "
-    "ishtirok etadi va iqtisodiy ta'lim bo'yicha mamlakatdagi yetakchi "
-    "universitetlardan biri hisoblanadi.\n\n"
+    "• QS Stars 5 yulduz (O'zbekistonda 1-, Markaziy Osiyoda 2-o'rin)\n"
+    "• QS Asia 2026: 274-o'rin | QS Sustainability 2026: TOP-1000\n"
+    "• THE Impact: TOP-500 | UI GreenMetric: TOP-250\n\n"
     "💵 <b>Stipendiya turlari:</b>\n"
-    "• Davlat stipendiyasi — grant asosida o'qiydigan, o'zlashtirishi yuqori "
-    "talabalarga.\n"
+    "• Davlat stipendiyasi — grant asosida o'qiydigan, o'zlashtirishi yuqori talabalarga.\n"
     "• Nomli/maxsus stipendiyalar — yuqori natija ko'rsatgan talabalarga.\n"
     "• Ijtimoiy yordam — ijtimoiy himoyaga muhtoj talabalar uchun.\n\n"
     f"ℹ️ Batafsil shartlar: {WEBSITE}"
@@ -124,29 +132,28 @@ RATING = (
 DORMITORY = (
     "🏠 <b>Yotoqxona va talaba hayoti</b>\n\n"
     "🛏 <b>Talabalar turar joyi:</b>\n"
-    "Universitet talabalar uchun turar joy (yotoqxona) bilan ta'minlaydi. "
-    "Joylar cheklangan bo'lib, ustuvorlik hududdan kelgan va ijtimoiy himoyaga "
-    "muhtoj talabalarga beriladi.\n"
+    "Universitetda 10 dan ortiq talabalar turar joyi mavjud — zamonaviy infratuzilma, "
+    "sport va madaniy maydonchalar bilan jihozlangan.\n"
     "<i>Joriy joylar soni, narxi va ariza tartibi qabul davrida e'lon qilinadi.</i>\n\n"
     "🎭 <b>Talaba hayoti:</b>\n"
     "• Jamoaviy klublar va to'garaklar\n"
-    "• Sport inshootlari va musobaqalar\n"
-    "• Madaniy tadbirlar, tanlovlar (\"Talabalar bahori\" va b.)\n"
+    "• Sport inshootlari, «Karaoke» klubi va kibersport zallari\n"
+    "• Madaniy tadbirlar, tanlovlar («Talabalar bahori» va b.)\n"
     "• Kafeteriyalar, kitob do'koni\n"
-    "• Imkoniyati cheklangan talabalar uchun qulayliklar\n\n"
+    "• «Kariera markazi» — bitiruvchilar bandligi 95%+\n\n"
     f"ℹ️ Batafsil: {WEBSITE}"
 )
 
 INTERNATIONAL = (
     "🌍 <b>Xalqaro imkoniyatlar</b>\n\n"
-    "🤝 <b>Qo'shma ta'lim dasturlari:</b>\n"
+    "🤝 <b>Qo'sh diplom dasturlari («1+1», «3+1»):</b>\n"
     + "\n".join(f"• {p}" for p in JOINT_PROGRAMS)
     + "\n\n"
     "🔄 <b>Imkoniyatlar:</b>\n"
-    "• Xalqaro grantlar va almashinuv dasturlari\n"
+    "• 200+ nufuzli universitet bilan hamkorlik (MIT, Sapienza, Tsukuba va b.)\n"
+    "• Erasmus+ va akademik almashinuv dasturlari\n"
     "• Xorijda malaka oshirish va amaliyot\n"
-    "• Xalqaro hamkorlik memorandumlari\n"
-    "• MITx MicroMasters dasturi (TSUE)\n"
+    "• 100+ xorijiy professor; barcha yo'nalishlarda inglizcha guruhlar\n"
     "• Xorijiy talabalar uchun ta'lim imkoniyatlari\n\n"
     f"ℹ️ Batafsil: {WEBSITE}"
 )
@@ -164,7 +171,6 @@ CONTACT = (
 
 
 def quota_text() -> str:
-    """Qabul kvotasi — admission_data dan, hozircha bo'sh bo'lsa eslatma."""
     head = f"📊 <b>Qabul kvotasi ({ad.YEAR})</b>\n\n"
     if not ad.has_any_quota():
         return (
@@ -194,8 +200,7 @@ def quota_text() -> str:
 
 
 def contract_text() -> str:
-    """Kontrakt summalari — admission_data dan."""
-    head = f"💰 <b>Kontrakt summalari ({ad.YEAR})</b>\n\n"
+    head = f"💰 <b>Kontrakt summalari — bazaviy ({ad.YEAR})</b>\n\n"
     any_amount = any(
         ad.get(p["id"])["contract_amount"] is not None
         for f in FACULTIES for p in f["programs"]
@@ -204,9 +209,7 @@ def contract_text() -> str:
         return (
             head
             + "Joriy o'quv yili kontrakt summalari hozircha kiritilmagan.\n\n"
-            "🔔 Rasmiy summalar e'lon qilinishi bilan har bir yo'nalish bo'yicha "
-            "shu yerda va yo'nalish kartochkalarida ko'rsatiladi.\n\n"
-            f"ℹ️ Rasmiy ma'lumot: {WEBSITE}/page/contract-prices-2024"
+            f"ℹ️ Rasmiy ma'lumot: {WEBSITE}"
         )
     lines = [head]
     for fac in FACULTIES:
@@ -219,21 +222,21 @@ def contract_text() -> str:
             lines.append(f"<b>{fac['name']}</b>")
             lines.extend(rows)
             lines.append("")
+    lines.append("<i>Eslatma: yuqoridagilar bazaviy summalar. Ball darajasiga qarab "
+                 "tabaqalashtirilgan (oshirilgan) summa belgilanishi mumkin.</i>")
     return "\n".join(lines)
 
 
 def faculties_intro() -> str:
     return (
         "🎓 <b>Fakultet va yo'nalishlar</b>\n\n"
-        "TDIU da 24 ta bakalavriat yo'nalishi mavjud. Quyidagi fakultetlardan "
+        "TDIU da 17 ta bakalavriat yo'nalishi mavjud. Quyidagi fakultetlardan "
         "birini tanlang — yo'nalishlar ro'yxati chiqadi.\n\n"
-        "ℹ️ Shuningdek, sirtqi, kechki, masofaviy va filial fakultetlari, "
-        "hamda xalqaro qo'shma dasturlar mavjud."
+        "ℹ️ Shuningdek, sirtqi, kechki, masofaviy va qo'shma ta'lim dasturlari mavjud."
     )
 
 
 def program_card(program_id: str) -> str:
-    """Yo'nalish kartochkasi — kod, shakl, til + ball/kontrakt (admission_data)."""
     prog = find_program(program_id)
     if not prog:
         return "Yo'nalish topilmadi."
@@ -246,7 +249,6 @@ def program_card(program_id: str) -> str:
     )
 
 
-# Statik matnli bo'limlar (callback key -> matn)
 TEXTS: dict[str, str] = {
     "about": ABOUT,
     "admission": ADMISSION_PROCESS,

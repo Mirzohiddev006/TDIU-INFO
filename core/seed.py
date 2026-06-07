@@ -55,7 +55,8 @@ async def seed() -> None:
                     db.add(Admission(
                         program_id=p.id, year=CURRENT_YEAR,
                         grant_places=d["grant_places"], contract_places=d["contract_places"],
-                        passing_grant=d["passing_grant"], passing_contract=d["passing_contract"],
+                        passing_grant=d["passing_grant"], passing_grant_ru=d.get("passing_grant_ru"),
+                        passing_contract=d["passing_contract"], passing_contract_ru=d.get("passing_contract_ru"),
                     ))
                 c = await db.scalar(
                     select(Contract).where(

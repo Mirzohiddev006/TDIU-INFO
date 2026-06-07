@@ -28,6 +28,15 @@ def _fmt_score(v) -> str:
     return f"{v}" if v is not None else "tez orada kiritiladi"
 
 
+def _score_pair(uz, ru) -> str:
+    parts = []
+    if uz is not None:
+        parts.append(f"O'zbek {uz}")
+    if ru is not None:
+        parts.append(f"Rus {ru}")
+    return " | ".join(parts) if parts else "tez orada kiritiladi"
+
+
 def _fmt_amount(v) -> str:
     if v is None:
         return "tez orada kiritiladi"
@@ -79,16 +88,18 @@ async def program_card(program_slug: str) -> str:
                 c = await db.scalar(select(Contract).where(
                     Contract.program_id == p.id, Contract.year == CURRENT_YEAR))
                 pg = a.passing_grant if a else None
+                pgr = a.passing_grant_ru if a else None
                 pc = a.passing_contract if a else None
+                pcr = a.passing_contract_ru if a else None
                 amt = c.amount if c else None
                 return (
                     f"🎓 <b>{p.name}</b>\n\n"
                     f"🔢 Kodi: <code>{p.code}</code>\n"
                     f"🕘 Ta'lim shakli: {p.form}\n"
                     f"🌐 O'qitish tili: {p.lang}\n\n"
-                    f"📈 Grant o'tish bali: <b>{_fmt_score(pg)}</b>\n"
-                    f"📊 Kontrakt o'tish bali: <b>{_fmt_score(pc)}</b>\n"
-                    f"💰 Kontrakt summasi: <b>{_fmt_amount(amt)}</b>"
+                    f"📈 Grant o'tish bali: <b>{_score_pair(pg, pgr)}</b>\n"
+                    f"📊 To'lov-kontrakt o'tish bali: <b>{_score_pair(pc, pcr)}</b>\n"
+                    f"💰 Kontrakt summasi (bazaviy): <b>{_fmt_amount(amt)}</b>"
                 )
     except Exception as e:  # noqa: BLE001
         logger.warning("program_card DB xato, statik: %s", e)
@@ -129,7 +140,7 @@ async def contract_text() -> str:
     try:
         async with async_session_factory() as db:
             facs = list(await db.scalars(select(Faculty).order_by(Faculty.sort_order)))
-            lines, any_a = [f"💰 <b>Kontrakt summalari ({CURRENT_YEAR})</b>\n"], False
+            lines, any_a = [f"💰 <b>Kontrakt summalari — bazaviy ({CURRENT_YEAR})</b>\n"], False
             for f in facs:
                 progs = list(await db.scalars(
                     select(Program).where(Program.faculty_id == f.id).order_by(Program.sort_order)))

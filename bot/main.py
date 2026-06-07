@@ -1,7 +1,8 @@
-"""TDIU Info Bot — ishga tushirish nuqtasi (long polling).
+"""TDIU Info Bot — ishga tushirish nuqtasi (long polling + keep-alive).
 
 Ishga tushganda DB jadvallarini yaratadi va bo'sh bo'lsa statik kontent bilan
-to'ldiradi (seed). Shu sababli bot birinchi ishga tushishda ham to'liq ishlaydi.
+to'ldiradi (seed). Render.com uchun health-server va self-ping keep-alive ham
+ishga tushadi (uyqudan saqlash uchun).
 """
 from __future__ import annotations
 
@@ -15,6 +16,7 @@ from sqlalchemy import select
 
 from bot.config import load_config
 from bot.handlers import get_router
+from bot.webserver import keepalive_loop, start_webserver
 from core.database import async_session_factory, init_db
 from core.models import Faculty
 from core.seed import seed
@@ -45,6 +47,10 @@ async def main() -> None:
     )
     dp = Dispatcher()
     dp.include_router(get_router())
+
+    # Health-server (Render port talabi) + keep-alive self-ping
+    await start_webserver()
+    asyncio.create_task(keepalive_loop())
 
     logger.info("Bot ishga tushdi (long polling).")
     await bot.delete_webhook(drop_pending_updates=True)
