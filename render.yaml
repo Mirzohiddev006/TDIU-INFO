@@ -26,23 +26,23 @@ services:
           name: tdiu-db
           property: connectionString
       - key: BOT_TOKEN
-        sync: false            # @BotFather tokeni — qo'lda kiritiladi
+        sync: false
       - key: ADMIN_IDS
-        sync: false            # operator/admin Telegram ID'lari
+        sync: false
       - key: SUPPORT_USERNAME
         sync: false
       - key: JWT_SECRET
-        generateValue: true    # avtomatik xavfsiz kalit
+        generateValue: true
       - key: ADMIN_USERNAME
         value: "admin"
       - key: ADMIN_PASSWORD
-        sync: false            # admin panel paroli — qo'lda kiriting!
+        sync: false
       - key: ADMISSION_YEAR
         value: "2025/2026"
       - key: KEEPALIVE_MINUTES
         value: "14"
       - key: SUBSCRIPTION_CHECK
-        value: "true"          # majburiy obuna; bot 3 kanalda ADMIN bo'lishi shart
+        value: "true"
 
   # 2) Admin panel (React static site — bepul)
   - type: web
@@ -51,8 +51,10 @@ services:
     buildCommand: "cd admin && npm install && npm run build"
     staticPublishPath: admin/dist
     envVars:
+      - key: NODE_VERSION
+        value: "20.18.1"      # Node 24 esbuild EACCES xatosini oldini oladi
       - key: VITE_API_URL
-        sync: false            # tdiu-bot-api manzili + /api (1-deploydan keyin kiriting)
+        sync: false            # tdiu-bot-api manzili + /api (1-deploydan keyin)
     routes:
       - type: rewrite
         source: /*
