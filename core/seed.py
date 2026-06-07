@@ -98,5 +98,16 @@ async def seed() -> None:
     print("Seed tugadi ✅")
 
 
+
+async def ensure_seeded() -> None:
+    """Jadvallarni yaratadi va baza bo'sh bo'lsa to'ldiradi (idempotent)."""
+    from sqlalchemy import select
+    from core.models import Faculty
+    await init_db()
+    async with async_session_factory() as db:
+        has = await db.scalar(select(Faculty).limit(1))
+    if has is None:
+        await seed()
+
 if __name__ == "__main__":
     asyncio.run(seed())

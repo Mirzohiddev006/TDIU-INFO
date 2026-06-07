@@ -18,7 +18,6 @@ logger = logging.getLogger("tdiu_bot.subscription")
 REQUIRED_CHANNELS = [
     {"name": "TSUE-TDIU", "username": "tsueuzofficial", "url": "https://t.me/tsueuzofficial"},
     {"name": "TDIU | Yoshlar kanali", "username": "tdiu_official", "url": "https://t.me/tdiu_official"},
-    {"name": "TDIU Yoshlar ittifoqi", "username": "TDIU_YI", "url": "https://t.me/TDIU_YI"},
 ]
 
 # A'zo deb hisoblanadigan statuslar

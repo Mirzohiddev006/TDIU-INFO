@@ -83,3 +83,12 @@ def operator_menu() -> InlineKeyboardMarkup:
     kb.button(text="🏠 Asosiy menyu", callback_data=MAIN)
     kb.adjust(1)
     return kb.as_markup()
+
+
+def operator_session_menu() -> InlineKeyboardMarkup:
+    """Operator sessiyasi: suhbatni yakunlash + asosiy menyu."""
+    kb = InlineKeyboardBuilder()
+    kb.button(text="❌ Suhbatni yakunlash", callback_data=f"{OPERATOR}:end")
+    kb.button(text="🏠 Asosiy menyu", callback_data=MAIN)
+    kb.adjust(1)
+    return kb.as_markup()

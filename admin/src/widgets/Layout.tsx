@@ -1,5 +1,5 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { BarChart3, Building2, GraduationCap, HelpCircle, LogOut, FileText, ScrollText } from 'lucide-react';
+import { BarChart3, Building2, GraduationCap, HelpCircle, LogOut, FileText, ScrollText, MessageSquare, Megaphone } from 'lucide-react';
 import { useAuth } from '@/store/auth';
 import { cn } from '@/shared/lib/cn';
 import { Button } from '@/shared/ui';
@@ -11,6 +11,8 @@ const nav = [
   { to: '/programs', label: "Yo'nalishlar", icon: GraduationCap },
   { to: '/sections', label: "Bo'lim matnlari", icon: FileText },
   { to: '/faq', label: 'FAQ', icon: HelpCircle },
+  { to: '/operator', label: 'Operator', icon: MessageSquare },
+  { to: '/broadcast', label: 'Ommaviy xabar', icon: Megaphone },
 ];
 
 export function Layout() {

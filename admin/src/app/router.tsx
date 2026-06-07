@@ -8,6 +8,8 @@ import { FacultiesPage } from '@/pages/FacultiesPage';
 import { ProgramsPage } from '@/pages/ProgramsPage';
 import { SectionsPage } from '@/pages/SectionsPage';
 import { FaqPage } from '@/pages/FaqPage';
+import { BroadcastPage } from '@/pages/BroadcastPage';
+import { OperatorPage } from '@/pages/OperatorPage';
 import type { ReactNode } from 'react';
 
 function Protected({ children }: { children: ReactNode }) {
@@ -27,6 +29,8 @@ export const router = createBrowserRouter([
       { path: 'programs', element: <ProgramsPage /> },
       { path: 'sections', element: <SectionsPage /> },
       { path: 'faq', element: <FaqPage /> },
+      { path: 'operator', element: <OperatorPage /> },
+      { path: 'broadcast', element: <BroadcastPage /> },
     ],
   },
 ]);

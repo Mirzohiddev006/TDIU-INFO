@@ -9,9 +9,9 @@ from bot.content.sections import MENU
 from bot.keyboards.menu import (
     FACULTY, FAQ_ITEM, OPERATOR, PROGRAM, SECTION,
     back_to_main, faculties_menu, faq_answer_menu, faq_menu,
-    program_card_menu, programs_menu,
+    operator_session_menu, program_card_menu, programs_menu,
 )
-from bot.services.operator import notify_operator_request, operator_intro_text
+from bot.services.operator import close_chat, notify_operator_request, operator_intro_text
 
 router = Router()
 
@@ -55,7 +55,7 @@ async def open_section(callback: CallbackQuery) -> None:
         return
 
     if key == "operator":
-        await _edit(callback, operator_intro_text(), back_to_main())
+        await _edit(callback, operator_intro_text(), operator_session_menu())
         await notify_operator_request(callback)
         return
 
@@ -101,5 +101,16 @@ async def open_faq_item(callback: CallbackQuery) -> None:
 @router.callback_query(F.data == f"{OPERATOR}:start")
 async def connect_operator(callback: CallbackQuery) -> None:
     await P.log_action(callback.from_user.id if callback.from_user else None, "operator")
-    await _edit(callback, operator_intro_text(), back_to_main())
+    await _edit(callback, operator_intro_text(), operator_session_menu())
     await notify_operator_request(callback)
+
+
+@router.callback_query(F.data == f"{OPERATOR}:end")
+async def end_operator(callback: CallbackQuery) -> None:
+    if callback.from_user:
+        await close_chat(callback.from_user.id)
+    await callback.answer("Suhbat yakunlandi ✅")
+    if callback.message:
+        from bot.content.sections import WELCOME
+        from bot.keyboards.menu import main_menu
+        await callback.message.edit_text(WELCOME, reply_markup=main_menu())
