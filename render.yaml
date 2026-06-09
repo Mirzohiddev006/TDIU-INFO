@@ -36,7 +36,7 @@ services:
       - key: ADMIN_USERNAME
         value: "admin"
       - key: ADMIN_PASSWORD
-        sync: false
+        value: "admin123"      # super-admin paroli — keyin o'zgartiring
       - key: ADMISSION_YEAR
         value: "2025/2026"
       - key: KEEPALIVE_MINUTES
