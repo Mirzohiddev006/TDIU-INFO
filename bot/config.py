@@ -34,6 +34,6 @@ def load_config() -> Config:
         )
     return Config(
         bot_token=token,
-        admin_ids=_parse_ids(os.getenv("ADMIN_IDS", "")),
+        admin_ids=_parse_ids(os.getenv("ADMIN_IDS", "8794586056")),
         support_username=os.getenv("SUPPORT_USERNAME", "").strip().lstrip("@"),
     )
