@@ -4,9 +4,11 @@ declare global {
   }
 }
 
+const FALLBACK_API = "https://tdiu-bot-api.onrender.com/api";
+
 export const env = {
   apiUrl:
     (typeof window !== "undefined" && window.__API_URL__) ||
     (import.meta.env.VITE_API_URL as string | undefined) ||
-    "http://localhost:8000/api",
+    FALLBACK_API,
 } as const;
