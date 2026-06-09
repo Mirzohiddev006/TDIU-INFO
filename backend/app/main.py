@@ -1,9 +1,8 @@
 """TDIU — Admin API + Telegram bot bitta servisda (Render bepul tarif uchun).
 
-Bu FastAPI ilovasi:
-  • admin panel uchun REST API beradi (/api/...),
+  • admin panel uchun REST API (/api/...),
   • lifespan ichida aiogram botni (long polling) fon vazifasi sifatida ishga tushiradi,
-  • /health endpoint (keep-alive) beradi.
+  • /health (keep-alive) va /docs (Swagger) beradi.
 
 Render'da bitta web servis: uvicorn backend.app.main:app
 BOT_TOKEN berilmasa, bot ishga tushmaydi (faqat API ishlaydi).
@@ -93,13 +92,25 @@ async def lifespan(app: FastAPI):
         await _bot.session.close()
 
 
-app = FastAPI(title="TDIU Info Bot — Admin API", version="2.0", lifespan=lifespan)
+app = FastAPI(
+    title="TDIU Info Bot — Admin API",
+    version="2.0",
+    description=(
+        "TDIU admin panel uchun REST API.\n\n"
+        "Kirish: POST /api/auth/login (admin / admin123) -> access_token. "
+        "So'ng yuqoridagi 'Authorize' tugmasiga tokenni qo'ying."
+    ),
+    lifespan=lifespan,
+    docs_url="/docs",
+    redoc_url="/redoc",
+)
 app.state.bot = None
 
+# Token (Bearer) bilan ishlaymiz — cookie ishlatmaymiz, shuning uchun credentials=False.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -110,6 +121,16 @@ app.include_router(admission.router)
 app.include_router(stats.router)
 app.include_router(broadcast.router)
 app.include_router(operator.router)
+
+
+@app.get("/", include_in_schema=False)
+async def root():
+    return {
+        "service": "TDIU Info Bot — Admin API",
+        "status": "ok",
+        "docs": "/docs",
+        "health": "/api/health",
+    }
 
 
 @app.get("/api/health")
