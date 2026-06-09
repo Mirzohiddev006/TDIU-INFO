@@ -1,26 +1,36 @@
 # Render.com ga joylashtirish — TDIU Info Bot + Admin panel
 
-Loyiha 3 qismdan iborat va Render Blueprint (`render.yaml`) orqali **bir marta** to'liq joylashadi:
-1. **PostgreSQL** (bepul) — doimiy ma'lumotlar bazasi
-2. **tdiu-bot-api** — bot + admin API bitta web servisda
-3. **tdiu-admin** — React admin panel (static site)
+Loyiha 2 ta Render servisi + 1 ta tashqi bepul baza (Neon) dan iborat:
+1. **Neon Postgres** (bepul, alohida) — doimiy ma'lumotlar bazasi
+2. **tdiu-bot-api** — bot + admin API bitta web servisda (Render)
+3. **tdiu-admin** — React admin panel, static site (Render)
+
+> **Nega Neon?** Render bepul tarifda akkauntda faqat BITTA bepul Postgres ruxsat etiladi.
+> Sizda allaqachon bitta bor (currency). Shuning uchun TDIU bazasini bepul **Neon**'da
+> ochamiz — currency'ga tegmaymiz, ikkalasi ham bepul ishlaydi.
 
 ## 0. Tayyorgarlik
-1. Loyihani **GitHub** repozitoriyaga push qiling (`.env` git'ga tushmaydi).
+1. Loyihani **GitHub**'ga push qiling (`.env` git'ga tushmaydi).
 2. @BotFather'dan bot tokeni tayyorlang.
 
-## 1. Blueprint orqali joylash
-1. Render Dashboard → **New** → **Blueprint**.
-2. GitHub repongizni tanlang — Render `render.yaml` ni o'qib, 3 ta resursni yaratadi.
+## 1. Bepul baza — Neon
+1. https://neon.tech → **Sign up** (GitHub bilan kirish mumkin).
+2. **New Project** → nom: `tdiu` → region Europe (Frankfurt) → **Create**.
+3. **Connection string** ni nusxa oling (masalan:
+   `postgresql://user:pass@ep-xxx.eu-central-1.aws.neon.tech/tdiu?sslmode=require`).
+   Bu manzilni 2-qadamda `DATABASE_URL` ga qo'yasiz. (Kod `sslmode` ni avtomatik moslaydi.)
+
+## 2. Blueprint orqali joylash
+1. Render Dashboard → **New** → **Blueprint** (yoki mavjud TDIU-INFO Blueprint → **Manual Sync**).
+2. GitHub repongizni tanlang — Render `render.yaml` ni o'qib, **2 ta servis** yaratadi (baza yaratmaydi).
 3. So'raladigan maxfiy qiymatlarni kiriting:
+   - `DATABASE_URL` — **Neon connection string** (1-qadam)
    - `BOT_TOKEN` — @BotFather tokeni
-   - `ADMIN_IDS` — operator/admin Telegram ID'lari (vergul bilan), `@userinfobot` dan oling
-   - `ADMIN_PASSWORD` — admin panelga kirish paroli (o'zingiz tanlang)
-   - `SUPPORT_USERNAME` — (ixtiyoriy) qabul komissiyasi username
-4. **Apply** → Render hammasini build qiladi.
-   - `DATABASE_URL` avtomatik Postgresga ulanadi.
-   - `JWT_SECRET` avtomatik yaratiladi.
-   - Admin login: `admin` / siz kiritgan `ADMIN_PASSWORD`.
+   - `ADMIN_IDS` — admin Telegram ID'lari (vergul bilan), `@userinfobot` dan
+   - `SUPPORT_USERNAME` — (ixtiyoriy)
+4. **Apply** → Render build qiladi.
+   - `JWT_SECRET` avtomatik yaratiladi. `ADMIN_PASSWORD` = `admin123` (keyin o'zgartiring).
+   - Admin login: `admin` / `admin123`.
 
 ## 2. Admin panelni API'ga ulash (1 marta)
 Admin panel oldindan build qilingan (`admin/dist`), Render uni npm bilan qaytadan
