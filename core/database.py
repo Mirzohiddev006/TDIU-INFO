@@ -9,10 +9,21 @@ from sqlalchemy.ext.asyncio import (
     create_async_engine,
 )
 
-from core.settings import DATABASE_URL
+from core.settings import DATABASE_URL, needs_ssl
 from core.models import Base
 
-engine = create_async_engine(DATABASE_URL, echo=False, future=True)
+# Tashqi Postgres (Neon/Render) uchun SSL + uxlab qolgan ulanishlarni tekshirish.
+_engine_kwargs: dict = {"echo": False, "future": True}
+if "+asyncpg" in DATABASE_URL:
+    _engine_kwargs["pool_pre_ping"] = True
+    _engine_kwargs["pool_recycle"] = 300
+    if needs_ssl():
+        import ssl as _ssl
+
+        _ctx = _ssl.create_default_context()
+        _engine_kwargs["connect_args"] = {"ssl": _ctx}
+
+engine = create_async_engine(DATABASE_URL, **_engine_kwargs)
 async_session_factory = async_sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
 
 

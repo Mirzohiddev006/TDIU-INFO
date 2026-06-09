@@ -15,9 +15,19 @@ def _normalize_db_url(url: str) -> str:
         url = "postgresql+asyncpg://" + url[len("postgres://"):]
     elif url.startswith("postgresql://"):
         url = "postgresql+asyncpg://" + url[len("postgresql://"):]
-    if "+asyncpg" in url and "sslmode=" in url:
+    # asyncpg libpq query-paramlarini tushunmaydi — SSL'ni connect_args orqali beramiz
+    if "+asyncpg" in url:
         url = re.sub(r"[?&]sslmode=[^&]*", "", url)
+        url = re.sub(r"[?&]channel_binding=[^&]*", "", url)
+        # ortib qolgan '?' yoki '&' belgilarini tozalash
+        url = re.sub(r"\?&", "?", url)
+        url = url.rstrip("?&")
     return url
+
+
+def needs_ssl() -> bool:
+    """Neon/Render kabi tashqi Postgres SSL talab qiladi (localhost'dan tashqari)."""
+    return "+asyncpg" in DATABASE_URL and "localhost" not in DATABASE_URL and "127.0.0.1" not in DATABASE_URL
 
 
 # Standart: SQLite (o'rnatishsiz ishlaydi). Production: PostgreSQL.
