@@ -40,7 +40,7 @@ WORK_HOURS = "Dushanba–Juma, 09:00 – 18:00"
 
 WELCOME = (
     "Assalomu alaykum!\n\n"
-    "<b>Toshkent Davlat Iqtisodiyot Universitetining</b> rasmiy axborot botiga "
+    "<b>Toshkent davlat iqtisodiyot universitetining</b> rasmiy axborot botiga "
     "xush kelibsiz.\n\n"
     "Bu bot orqali siz qabul jarayoni, yo'nalishlar, o'tish ballari, kontrakt "
     "to'lovlari va universitetning boshqa muhim ma'lumotlari bilan tanishishingiz "
