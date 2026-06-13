@@ -19,26 +19,41 @@ FACULTIES: list[dict] = [
         "name": "Iqtisodiyot fakulteti",
         "programs": [
             _p("econ", "60410100", "Iqtisodiyot"),
+            _p("hr", "60411000", "Inson resurslarini boshqarish"),
         ],
     },
     {
-        "id": "accounting",
-        "name": "Buxgalteriya hisobi fakulteti",
+        "id": "digital",
+        "name": "Raqamli iqtisodiyot va axborot texnologiyalari fakulteti",
         "programs": [
-            _p("accounting", "60410200", "Buxgalteriya hisobi"),
+            _p("info_systems", "60610100", "Axborot tizimlari va texnologiyalari"),
+            _p("info_security", "60610200", "Axborot xavfsizligi"),
             _p("statistics", "60410700", "Statistika"),
+            _p("ai", "60610500", "Sun'iy intellekt"),
         ],
     },
     {
-        "id": "taxes",
-        "name": "Soliqlar va byudjet hisobi fakulteti",
+        "id": "tourism",
+        "name": "Turizm fakulteti",
         "programs": [
-            _p("taxes", "60410300", "Soliqlar va soliqqa tortish"),
+            _p("tourism", "61010100", "Turizm va mehmondo'stlik"),
+            _p("marketing", "60411200", "Marketing"),
+            _p("trade", "60411300", "Savdo ishi"),
+        ],
+    },
+    {
+        "id": "management",
+        "name": "Menejment fakulteti",
+        "programs": [
+            _p("management", "60410800", "Menejment"),
+            _p("logistics", "61010400", "Logistika"),
+            _p("business", "60410900", "Biznesni boshqarish"),
+            _p("world_econ", "60411100", "Jahon iqtisodiyoti va xalqaro iqtisodiy munosabatlar"),
         ],
     },
     {
         "id": "finance",
-        "name": "Moliya fakulteti",
+        "name": "Moliya va moliyaviy texnologiyalar fakulteti",
         "programs": [
             _p("finance", "60410500", "Moliya va moliyaviy texnologiyalar"),
         ],
@@ -51,32 +66,17 @@ FACULTIES: list[dict] = [
         ],
     },
     {
-        "id": "management",
-        "name": "Menejment fakulteti",
+        "id": "taxes",
+        "name": "Soliqlar va byudjet hisobi fakulteti",
         "programs": [
-            _p("management", "60410800", "Menejment"),
-            _p("business", "60410900", "Biznesni boshqarish"),
-            _p("hr", "60411000", "Inson resurslarini boshqarish"),
-            _p("world_econ", "60411100", "Jahon iqtisodiyoti va xalqaro iqtisodiy munosabatlar"),
-            _p("marketing", "60411200", "Marketing"),
-            _p("trade", "60411300", "Savdo ishi"),
-            _p("logistics", "61010400", "Logistika"),
+            _p("taxes", "60410300", "Soliqlar va soliqqa tortish"),
         ],
     },
     {
-        "id": "digital",
-        "name": "Raqamli iqtisodiyot va axborot texnologiyalari fakulteti",
+        "id": "accounting",
+        "name": "Buxgalteriya hisobi fakulteti",
         "programs": [
-            _p("info_systems", "60610100", "Axborot tizimlari va texnologiyalari"),
-            _p("info_security", "60610200", "Axborot xavfsizligi"),
-            _p("ai", "60610500", "Sun'iy intellekt"),
-        ],
-    },
-    {
-        "id": "tourism",
-        "name": "Turizm fakulteti",
-        "programs": [
-            _p("tourism", "61010100", "Turizm va mehmondo'stlik"),
+            _p("accounting", "60410200", "Buxgalteriya hisobi"),
         ],
     },
 ]

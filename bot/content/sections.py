@@ -31,7 +31,8 @@ PHONES = [
     "+998 71 239 28 77",
     "+998 71 239 28 79",
 ]
-ADMISSION_PHONES = ["+998 71 239 28 78", "+998 71 239 27 23"]
+ADMISSION_PHONES = ["+998 71 245 42 43", "+998 71 239 01 59"]
+TRANSFER_PHONES = ["+998 71 239 28 78"]  # O'qishni ko'chirish va qayta tiklash bo'limi
 EMAIL = "info@tsue.uz"
 ADMISSION_EMAIL = "admission@tsue.uz"
 ADDRESS = "100066, Toshkent shahri, Islom Karimov ko'chasi, 49-uy"
@@ -166,9 +167,10 @@ INTERNATIONAL = (
 )
 
 CONTACT = (
-    "📞 <b>Bog'lanish (Qabul komissiyasi)</b>\n\n"
-    "☎️ <b>Call-markaz:</b>\n" + "\n".join(f"• {p}" for p in PHONES) + "\n\n"
+    "📞 <b>Bog'lanish</b>\n\n"
     "📋 <b>Qabul komissiyasi:</b>\n" + "\n".join(f"• {p}" for p in ADMISSION_PHONES) + "\n\n"
+    "🔄 <b>O'qishni ko'chirish va qayta tiklash bo'limi:</b>\n"
+    + "\n".join(f"• {p}" for p in TRANSFER_PHONES) + "\n\n"
     f"📧 Email: {EMAIL}\n"
     f"📧 Qabul: {ADMISSION_EMAIL}\n"
     f"🕘 Ish vaqti: {WORK_HOURS}\n"
